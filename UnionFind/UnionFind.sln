@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28922.388
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnionFind", "UnionFind\UnionFind.csproj", "{FB8B745F-F920-452F-9FD2-64D63C4BE49E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB8B745F-F920-452F-9FD2-64D63C4BE49E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB8B745F-F920-452F-9FD2-64D63C4BE49E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB8B745F-F920-452F-9FD2-64D63C4BE49E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB8B745F-F920-452F-9FD2-64D63C4BE49E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5D6916D2-7BDB-4AE9-B854-93C326F2EF04}
+	EndGlobalSection
+EndGlobal
