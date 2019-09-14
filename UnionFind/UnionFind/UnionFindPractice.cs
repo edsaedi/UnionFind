@@ -6,29 +6,68 @@ using System.Text;
 
 namespace UnionFind
 {
-    public class UnionFindPractice<T> where T : IEquatable<T>
+    public class UnionFindPractice<T>
     {
         Dictionary<T, int> map;
-        T[] id;
+        int[] id;
 
-        public UnionFindPractice(List<T> list, int capacity)
+        public UnionFindPractice(List<T> list)
         {
-            id = new T[capacity];
-            map = new Dictionary<T, int>(capacity);
+            id = new int[list.Count];
+            map = new Dictionary<T, int>();
             for (int i = 0; i < list.Count; i++)
             {
                 map.Add(list[i], i);
+                id[i] = i;
             }
+        }
+
+
+        public T ReverseMap(int num)
+        {
+            foreach (var (name, mapVal) in map)
+            {
+                if (mapVal == num)
+                {
+                    return name;
+                }
+            }
+
+            return default(T);
         }
 
         public int NumSets() => id.Distinct().Count();
 
-        public IEnumerable<T> TSets()
+        public List<T> GetAllMembersInGroup(int groupId)
         {
-            return id.Distinct().ToList();
+            List<T> groupMembers = new List<T>();
+
+            for (int i = 0; i < id.Length; i++)
+            {
+                if (id[i] == groupId)
+                {
+                    groupMembers.Add(ReverseMap(i));
+                }
+            }
+
+            return groupMembers;
         }
 
-        public bool IsConnected(T p, T q) => Find(p).Equals(Find(q));
+
+        public Dictionary<int, List<T>> GetAllGroupsWithMembers()
+        {
+            // for all the disjoint sets, get all their members and return it
+            var temp = id.Distinct();
+            Dictionary<int, List<T>> keyValuePairs = new Dictionary<int, List<T>>();
+            foreach (var item in temp)
+            {
+                keyValuePairs.Add(item, GetAllMembersInGroup(item));
+            }
+            return keyValuePairs;
+        }
+
+
+        public bool IsConnected(T p, T q) => Find(p) == (Find(q));
 
         public void Union(T p, T q)
         {
@@ -42,16 +81,17 @@ namespace UnionFind
 
             for (int i = 0; i < id.Length; i++)
             {
-                if (id[i].Equals(pId))
+                if (id[i] == (pId))
                 {
                     id[i] = qId;
                 }
             }
         }
 
-        public T Find(T item)
+        public int Find(T item)
         {
-            return id[map[item]];
+            var innerKey = map[item];
+            return id[innerKey];
         }
 
     }
