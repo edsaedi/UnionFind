@@ -8,21 +8,27 @@ namespace UnionFind
     {
         static void Main(string[] args)
         {
-            QuickUnion quickUnion = new QuickUnion(10);
-            quickUnion.Union(0, 2);
-            quickUnion.Union(4, 5);
-            quickUnion.Union(4, 6);
-            quickUnion.Union(7, 6);
-            quickUnion.Union(7, 9);
-            quickUnion.Union(8, 3);
+            Compression comp = new Compression(10);
 
-            for (int i = 0; i < 10; i++)
-            {
-                Console.Write(quickUnion.id[i]);
-                Console.WriteLine($", {quickUnion.Find(i)}");
-            }
+            comp.Union(0, 5);
+            comp.Union(3, 8);
+            comp.Union(5, 9);
+            comp.Union(9, 8);
+            //    QuickUnion quickUnion = new QuickUnion(10);
+            //    quickUnion.Union(0, 2);
+            //    quickUnion.Union(4, 5);
+            //    quickUnion.Union(4, 6);
+            //    quickUnion.Union(7, 6);
+            //    quickUnion.Union(7, 9);
+            //    quickUnion.Union(8, 3);
 
-            
+            //    for (int i = 0; i < 10; i++)
+            //    {
+            //        Console.Write(quickUnion.id[i]);
+            //        Console.WriteLine($", {quickUnion.Find(i)}");
+            //    }
+
+
             //string[] file = File.ReadAllLines(@"\\GMRDC1\Folder Redirection\Edan.Saedi\Desktop\UnionFind\UnionFind\UnionFind\input.txt");
             //List<string> list = new List<string>();
             //int capacity = int.Parse(file[0]);
